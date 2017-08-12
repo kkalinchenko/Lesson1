@@ -1,159 +1,178 @@
-"use strict"
+"use strict";
 
 /***1***/
-
-// var x = prompt('Enter number','');
-// x = Number(x);
-// if(x > 0){
+// (function(argument) {
+// 	var x = prompt('Enter number','');
+// 	x = Number(x);
+// 	if(x > 0){
 // 	x++;
-// }
-// else if(x < 0){
+// 	}	else if(x < 0){
 // 	x = x-2;
-// }
-// else{
+// 	} else{
 // 	x = 10;
-// }
-// alert(x);
+// 	}
+// 	alert(x);
+// }());
+
 
 /***2***/
+// (function  () {
+// 	var x = -1, result = 'нулевое число';
+// 	if(!x){
+// 		console.log(result);
 
-// var x1 = prompt('Enter number','');
-// x1 = Number(x1);
-// if(x1 === 0){
-// 	console.log('нулевое число');
-// }
-// else if(x1 > 0 && x1%2 == 0){
-// 	console.log('положительное четное число');
-// }
-// else if(x1 > 0 && x1%2 !== 0){
-// 	console.log('положительное нечетное число');
-// }
-// else if(x1 < 0 && x1%2 == 0){
-// 	console.log('отрицательное четное число;');
-// }
-// else{
-// 	console.log('отрицательное нечетное число');
-// }
+// 		return;
+// 	}
+
+// 	if(x & 1){
+// 		result = 'нечетное';
+// 	} else {
+// 		result = 'четное';
+// 	}
+
+// 	result += ' ';
+// 	result += (x > 0) ? 'положительное число' : 'отрицательное число';
+// 	console.log(result);
+// }());
+
 
 /***3***/
 
-// var a = 1, b = 1, c = 4, d = 1;
-// if(a !== b && a !== c && a !== d){
-// 	console.log('1');
-// }
-// else if(b !== a && b !== c && b !== d){
-// 	console.log('2');
-// }
-// else if(c !== a && c !== b && c !== d){
-// 	console.log('3');
-// }
-// else{
-// 	console.log('4');
-// }
+(function() {
+	var arr = [2, 2, 3, 2];
+	arr.reduce(function(accumulator, currentValue, index){
+		if (accumulator !== currentValue) {
+			accumulator = currentValue;
+			console.log(index + 1);
+			return;
+		} 
+	});
+	
+}());
+
 
 /***4***/
+// (function(){
+// 	var results = ['плохо', 'неудовлетворительно', 'удовлетворительно', 'хорошо', 'отлично'];
+// 	var mark = parseInt(prompt('Enter mark',''));
+// 	if(isNaN(mark) || mark > 5 || mark < 1){
+// 		console.log('You entered invalid number');
+// 		return;
+// 	}
+// 	console.log(results[mark-1]);
 
-// var k = prompt('Enter number', '');
-// k = Number(k);
-// switch(k){
-// 	case 1:
-// 		console.log('плохо');
-// 		break;
-// 	case 2: 
-// 		console.log('неудовлетворительно');
-// 		break;
-// 	case 3: 
-// 		console.log('удовлетворительно');
-// 		break;
-// 	case 4:
-// 		console.log('хорошо');
-// 		break;
-// 	case 5:
-// 		console.log('отлично');
-// 		break;
-// 	default:
-// 		console.log('ошибка');
-// }
+// }());
+
 
 /***5***/
+// (function(){
+// 	var a = 10, b = 3;
+// 	while(a >= b){
+// 		a = a-b;
+// 	}
 
-// var a = 10, b = 3, c = 0;
-// while(a >= b){
-// 	a = a-b;
-// }
+// 	console.log(a);
+// })();
 
-// console.log(a);
 
 /***6***/
+(function() {
+	var a = 123, c = 0;
+	while(a > 0){
+	c = a%10;
+	a = (a - c)/10;
+	console.log(c);
+	}
+}());
 
-// var a = 123, c = 0;
-// while(a > 0){
-// 	c = a%10;
-// 	a = (a - c)/10;
-// 	console.log(c);
-// }
 
 /***7***/
 
-// var a = 3, b = 6, c = 0;
-// for (; a <= b; a++) {
-// 	c += a;
-// };
-// console.log(c);
+// (function(argument) {
+// 	var a = 3, b = 6, c = 0;
+// 	for (; a <= b; a++) {
+// 		c += a;
+// 	};
+// 	console.log(c);
+// }());
+
 
 /***8***/
 
-// var a = 5, f = 1;
-// for(var i = 2; i <= a; i++){
-// 	f *= i;
-// }
-// console.log(f);
+// (function() {
+// 	var a = 5, f = 1;
+// 	for(var i = 2; i <= a; i++){
+// 		f *= i;
+// 	}
+// 	console.log(f);
+// }());
+
 
 /***9***/
-// Тут немного не понятно
-/***10***/
-// var a = 2, b = 10;
-// while(a <= b){
-// 	for(var i = 0; i < a; i++){
-// 		console.log(a);
+// (function (){
+// 	var arr = [];
+// 	while(true){
+// 		var num = prompt('Enter number', '');
+// 		num = parseInt(num);
+// 		if(!isNaN(num)){
+// 			arr.push(num);
+// 			continue;
+// 		}
+
+// 		break;
 // 	}
-// 	a++;
-// }
+
+// 	var sum = arr.length? arr.reduce(
+// 		function (accumulator, currentValue) {
+// 			return accumulator + currentValue;
+// 		}) : 0;
+
+// 	console.log(sum);
+// }());
+
+/***10***/
+// (function() {
+// 	var a = 2, b = 10, 
+// 	initA = a;
+// 	while(a <= b){
+// 		var res = '';
+// 		for(var i = 0; i < a - initA + 1; i++){
+// 			res += a + ' ';
+// 		}
+// 		console.log(res);
+// 		a++;
+// 	}
+// }());
+
 
 /***11***/
 // function pow(x, n) {
+// 	if(n === 0){
+// 		return 1;
+// 	}
+
 // 	for (var i = 0; i < n-1; i++) {
 // 		x *=x;
-// 	};
+// 	}
+
 // 	return x;
-// };
-// console.log(pow(5,3));
+// }
+
+// console.log(pow(5,2));
 
 /****12***/
 // function minMax(x, y){
-// 	if(x < y ){
-// 		return x;
-// 	}
-// 	else{
-// 		return y;
-// 	}
-// };
+// 	return x < y ? x : y;
+// }
+
 // console.log(minMax(4,5));
 
 /***13***/
 // function sign(x) {
-// 	if(x < 0){
-// 		x = -1;
-// 	}
-// 	else if(x === 0){
-// 		x = 0
-// 	}
-// 	else{
-// 		x = 1;
-// 	}
-// 	return x;
+// 	return (x < 0) ? -1 : (!x) ? 0 : 1;
 // }
-// console.log(sign(6));
+
+// console.log(sign(parseFloat(prompt('Number',''))));
 
 /***14***/
 // function calc(a, b, op){
@@ -174,21 +193,38 @@
 // 	return res;
 // }
 
-// console.log(calc(2,3,2));
+// ver 2
+// var operations = [];
+
+// operations.push(function(a, b){return a - b;});
+// operations.push(function(a, b){return a * b;});
+// operations.push(function(a, b){return a / b;});
+// operations.push(function(a, b){return a + b;});
+// operations.push(function(a, b){return Math.pow(a, b);});
+
+// function calc2(a, b, op){
+// 	return operations[op-1](a, b);
+// }
+
+// console.log(calc2(2,3,5));
 
 /***15***/
 // function digitN(k,n) {
-// 	var number = 0;
-// 	for(var i = 0; i < n; i++){
-// 		number = k%10;
-// 		k = (k - number)/10;
+// 	var arr = [];
+// 	while(k > 0){
+// 		var num = k%10;
+// 		arr.push(num);
+// 		k = (k - num)/10;
 // 	}
-// 	if(k > 0){
-// 		return number;
-// 	}
-// 	else{
-// 		return -1;
-// 	}
-// }
 
+// 	return (n > arr.length || n < 1)? -1 : arr[n-1];
+// }
+// function digitN(number, position) {
+// 	var arr = number.toString().split('').reverse();
+// 	return (position > arr.length || position < 1)? -1 : arr[position-1];
+// }
+// console.log(digitN(234,0));
+// console.log(digitN(234,1));
+// console.log(digitN(23423,8));
 // console.log(digitN(234,3));
+// console.log(digitN(234,4));
