@@ -40,15 +40,15 @@
 
 (function() {
 	var arr = [2, 2, 3, 2];
-	arr.reduce(function(accumulator, currentValue, index){
-		if (accumulator !== currentValue) {
-			accumulator = currentValue;
-			console.log(index + 1);
-			return;
-		} 
+	arr.forEach(function(item, i){
+		if(item[i]!== item[i+1]){
+			console.log(i + 1);
+			return false;
+		}
 	});
-	
+
 }());
+
 
 
 /***4***/
