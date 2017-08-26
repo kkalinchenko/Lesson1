@@ -41,13 +41,13 @@ var car = {
 var tv = {
 	currentChannel: 1,
 	nextChannel: function() {
-		currentChannel++;
+		this.currentChannel++;
 	},
 	previousChannel: function() {
-		currentChannel--;
+		this.currentChannel--;
 	},
 	setChannel: function(number) {
-		currentChannel = number;
+		this.currentChannel = number;
 	}
 }
 
@@ -104,11 +104,12 @@ var salaries = {
 };
 
 function averageSalary (obj) {
-	var sum = 0;
+	var sum = 0, count = 0;
 	for(var key in obj){
 		sum += obj[key];
+		count++;
 	}
-	return sum/2;
+	return sum/count;
 }
 
 console.log(averageSalary(salaries));
@@ -130,11 +131,12 @@ var car = new CreateCar('Lada', 80);
 
 /***2***/
 function averageSalary (obj) {
-	var sum = 0;
+	var sum = 0, count = 0;
 	for(var key in obj){
 		sum += obj[key];
+		count++;
 	}
-	return sum/2;
+	return sum/count;
 }
 
 console.log(averageSalary(salaries));
@@ -176,8 +178,9 @@ console.log(calculator.mul());
 function mul() {
 	var mul = 1, count = 0;
 	for(var i = 0; i < arguments.length; i++){
-		if(parseInt(arguments[i])){
-			mul *= arguments[i];
+		var value = parseInt(arguments[i]);
+		if(!isNaN(value)){
+			mul *= value;
 			count++;
 		}
 	}
