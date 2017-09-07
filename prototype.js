@@ -57,7 +57,7 @@ Worker.prototype = (function(){
 	}
 
 	obj.displayCompany = function() {
-		console.log(this.name + 'work at' + this.company);
+		console.log(this.name + ' work at ' + this.company);
 	}
 
 	obj.__proto__ = Human.prototype;
