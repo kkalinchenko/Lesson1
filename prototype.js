@@ -7,22 +7,17 @@ function Human(name, age){
 
 Human.prototype = (function(){
 	var obj = {};
-	var _age = 0; 
 
 	function _validateAge(age){
-		return (typeof age == 'number' && age > 0) ? true : false;
+		return typeof age === 'number' && age > 0;
 	}
-	function _getAge(){
-		if(_validateAge(this.age)){
-			_age = this.age;
-		} else{
-			_age = 'invalid age';
-		}
-		return _age;
+
+	function _getAge() {
+    return _validateAge(this.age) ? this.age : 'invalid age';
 	}
 
 	obj.displayAge = function() {
-		 var a = _getAge.call(this);
+		var a = _getAge.call(this);
 		if(typeof a == 'string'){
 			console.log(a);
 		} else{
@@ -47,14 +42,14 @@ Worker.prototype = (function(){
 	var obj = {};
 
 	function countExperience(yearStart, yearEnd){
-		if(isNumber(yearStart) && isNumber(yearEnd) && (yearEnd > yearStart)){
+		if(isPositiveNumber(yearStart) && isPositiveNumber(yearEnd) && (yearEnd > yearStart)){
 			return yearEnd - yearStart;
 		}
 		return 'Invalid data';
 	}
 
-	function isNumber(value){
-		return (typeof value == 'number' && value > 0) ? true : false; 
+	function isPositiveNumber(value){
+		return typeof value === 'number' && value > 0; 
 	}
 
 	obj.displayExperience = function(yearStart, yearEnd) {
