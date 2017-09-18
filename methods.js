@@ -44,7 +44,7 @@ console.log(addTwoDays(currentDate));
 /***4***/
 function sumSliceArray (arr, first, second) {
 	function validate (val) {
-		return !isNaN(parseInt(value)) && val < arr.length;
+		return !isNaN(parseInt(val)) && val < arr.length;
 	}
 
   try {
@@ -60,10 +60,22 @@ function sumSliceArray (arr, first, second) {
 
 }
 
-function useSum (arr, callback) {
-	
-}
-
-sumSliceArray([1,2,3,4], 'str', 5);
 
 /***5***/
+function sumSliceArrayUse (arr, first, second) {
+	function validate (val, arr) { 
+		return !isNaN(parseInt(val)) && val < arr.length;
+	}
+	function check(arr, first, second){
+		return Array.isArray(arr) && arguments.length === 3 && validate(first, arr) 
+		&& validate(second, arr);
+	}
+
+	if(check(arr, first, second)){
+		return sumSliceArray(arr, first, second);
+	} else {
+		return 'Invalid data';
+	}
+}
+
+
