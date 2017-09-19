@@ -5,6 +5,55 @@
 	<title>Lesson1</title>
 </head>
 <body>
+	 <body>
+			<p id="color">Текст</p>
+      <button>Красный</button>
+      <button>Синий</button>
+      <button>Сброс</button>
+
+      <script>
+      var buttons = document.getElementsByTagName('button'),
+      text = document.querySelector('#color');
+      var colorChoose = {
+      	addSubcribers : function(color, callback){
+      		this.__subcribers.push({
+      			color : color,
+      			func : callback
+      		})
+      	},
+      	__subcribers : [],
+      	__invokeSubcribers : function() {
+      		Array.prototype.forEach.call(this.__subcribers, function(obj) {
+      			Array.prototype.forEach.call(buttons, function(btn) {
+      				if(btn.innerHTML === obj.color){
+      					btn.onclick = obj.func;
+      				}
+      			})
+      		})
+      	}
+
+      }
+         
+      function redSubcriber() {
+      	text.style.color = 'red';
+      }
+      function blueSubcriber() {
+      	text.style.color = 'blue';
+      }
+
+      function resetSubscriber() {
+      	text.style.color = '';
+      }
+
+      colorChoose.addSubcribers('Красный', redSubcriber);
+      colorChoose.addSubcribers('Синий', blueSubcriber);
+      colorChoose.addSubcribers('Сброс', resetSubscriber);
+      colorChoose.__invokeSubcribers();
+
+      </script>
+
+   </body>
+
 	<!--<script src="script.js"></script>
 	<script src="script1.js"></script>
 	<script src="script2.js"></script>
@@ -13,6 +62,7 @@
 	<script src ='prototype.js'></script>
 	<script src = 'karina_defprop.js'></script>
 	<script src ='test_proto.js'></script> 
-	<script src = 'array_methods.js'></script> -->
+	<script src = 'array_methods.js'></script>
+	<script src ="events.js"></script> -->
 </body>
 </html>
