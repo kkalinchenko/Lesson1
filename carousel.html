@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		#carousel{
+			width: 200px;
+			overflow: hidden;
+			margin : 0;
+		}
+		ul{
+			padding: 0;
+			transition: margin-left 250ms;
+			width: 99999px;
+			overflow: hidden;
+			display: block;
+		}
+		ul li{
+			width: 100px;
+			height: 100px;
+			background: red;
+			float: left;
+			display: block;
+		}
+	</style>
+	<div id = 'carousel'>
+		<ul id='devices_list'>	
+			<li class='active'>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<button type='button' id='prev'>Prev</button>
+	<button type='button' id='next'>Next</button>
+	<script>
+
+		var carousel = document.querySelector('#devices_list');
+		var width = carousel.firstElementChild.clientWidth;
+		var shift = 0;
+		var prev = document.querySelector('#prev');
+		var next = document.querySelector('#next');
+		var arrItems = carousel.children;
+		var arrItemsLength = arrItems.length;
+
+		function nextElement(e, active) {
+			
+			if(Array.prototype.indexOf.call(arrItems, active) < arrItemsLength - 2){
+				shift = shift + width;
+				carousel.style.marginLeft = -shift + 'px';
+				active.nextElementSibling.classList.add('active');
+				active.classList.remove("active");
+			} else{
+				e.preventDefault();
+			}
+		}
+
+
+		function prevElement(e,active) {
+			
+			if(Array.prototype.indexOf.call(arrItems, active) > 0){
+				shift = shift - width;
+				carousel.style.marginLeft = -shift + 'px';
+				active.previousElementSibling.classList.add('active');
+				active.classList.remove("active");
+
+			} else{
+				e.preventDefault();
+			}
+		}
+
+		next.onclick = function(e) {
+			var active = document.querySelector('.active');
+			nextElement(e, active);
+		}
+
+		prev.onclick = function(e) {
+			var active = document.querySelector('.active');
+			prevElement(e, active);
+		}
+
+
+
+	</script>
+</body>
+</html>
